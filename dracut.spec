@@ -430,7 +430,7 @@ install -m 0755 51-dracut-rescue-postinst.sh $RPM_BUILD_ROOT%{_sysconfdir}/kerne
 %{_prefix}/lib/kernel/install.d/50-dracut.install
 
 %files network
-%{dracutlibdir}/modules.d/02systemd-networkd
+%{dracutlibdir}/modules.d/35systemd-networkd
 %{dracutlibdir}/modules.d/35network-manager
 %{dracutlibdir}/modules.d/35network-legacy
 %{dracutlibdir}/modules.d/40network
