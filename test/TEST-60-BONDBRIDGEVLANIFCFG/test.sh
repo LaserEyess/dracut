@@ -2,13 +2,15 @@
 # -*- mode: shell-script; indent-tabs-mode: nil; sh-basic-offset: 4; -*-
 # ex: ts=8 sw=4 sts=4 et filetype=sh
 
-
-if [[ $NM ]]; then
+if [[ $SN ]]; then
+    USE_NETWORK="systemd-networkd"
+    OMIT_NETWORK="network-legacy network-manager"
+elif [[ $NM ]]; then
     USE_NETWORK="network-manager"
-    OMIT_NETWORK="network-legacy"
+    OMIT_NETWORK="network-legacy systemd-networkd"
 else
     USE_NETWORK="network-legacy"
-    OMIT_NETWORK="network-manager"
+    OMIT_NETWORK="network-manager systemd-networkd"
 fi
 
 TEST_DESCRIPTION="root filesystem on NFS with bridging/bonding/vlan with $USE_NETWORK"

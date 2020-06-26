@@ -1,11 +1,14 @@
 #!/bin/bash
 
-if [[ $NM ]]; then
+if [[ $SN ]]; then
+    USE_NETWORK="systemd-networkd"
+    OMIT_NETWORK="network-legacy network-manager"
+elif [[ $NM ]]; then
     USE_NETWORK="network-manager"
-    OMIT_NETWORK="network-legacy"
+    OMIT_NETWORK="network-legacy systemd-networkd"
 else
     USE_NETWORK="network-legacy"
-    OMIT_NETWORK="network-manager"
+    OMIT_NETWORK="network-manager systemd-networkd"
 fi
 
 TEST_DESCRIPTION="root filesystem on NFS with multiple nics with $USE_NETWORK"
