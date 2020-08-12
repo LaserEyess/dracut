@@ -16,6 +16,7 @@ TEST_DESCRIPTION="root filesystem on NFS with multiple nics with $USE_NETWORK"
 KVERSION=${KVERSION-$(uname -r)}
 
 # Uncomment this to debug failures
+DEBUGFAIL="systemd.log_level=debug rd.debug"
 #DEBUGFAIL="rd.shell rd.break"
 #SERIAL="tcp:127.0.0.1:9999"
 
